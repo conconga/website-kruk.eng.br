@@ -1,0 +1,3 @@
+#!/bin/bash
+
+jekyll build --source . --destination __site_para_publicacao__

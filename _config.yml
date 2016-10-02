@@ -1,12 +1,14 @@
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
+title: I am a Maker
+email: sp03@kruk.eng.br
 description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
 baseurl: ""
-url: "http://yourdomain.com"
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://www.kruk.eng.br"
+#twitter_username: jekyllrb
+github_username:  conconga
+linkedin_username: lkruk
 
 # Build settings
 markdown: kramdown
 permalink: pretty
+#highlighter: rouge

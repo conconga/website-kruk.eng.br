@@ -1,6 +1,6 @@
 #!/bin/bash
 
-fldsite=__site_para_publicacao__
+fldsite=_site
 
 rm -rfv $fldsite
 jekyll build --source . --destination $fldsite

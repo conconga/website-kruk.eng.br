@@ -3,6 +3,7 @@ source:        .
 destination:   _site
 safe:          true
 title:         I am a Maker
+title_lu:      lu awesome title
 email:         sp03@kruk.eng.br
 description:   "Personal Website and Blog from Luciano A. Kruk"
 baseurl:       ""
@@ -19,3 +20,4 @@ permalink: pretty
 
 exclude:
     - sh_do2publish
+

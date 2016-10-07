@@ -1,20 +1,37 @@
 ---
-layout: default
+layout: vazio
 ---
 
 <div class="home">
 
-  <h1>Posts</h1>
+    <div class="site-title">
 
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+        <div style="position:relative; border: 1px solid black; width:728px; margin: auto; float: left; background-color: pink;">
+            <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+        </div>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+        <div style="position:relative; border: 1px solid black; width:728px; height:200px; margin: auto; float: left; background-color: pink;">
+
+            <div style="position:absolute; border: 1px solid black; width:35%; left:0px; background-color: pink;">
+                <a href="{{ site.baseurl }}/lu/">
+                    <img src="images/teste.jpg" alt="foto um" width="100%">
+                </a>
+            </div>
+
+            <div style="position:absolute; border: 1px solid yellow; width:15%; left:35.3%; top: 0px; text-align: left">
+                text 1
+            </div>
+
+            <div style="position:absolute; border: 2px solid black; width:35%; bottom:0px; right:0px; background-color: pink;">
+                <img src="images/teste.jpg" alt="foto dois" width="100%">
+            </div>
+
+            <div style="position:absolute; border: 1px solid yellow; width:100px; right:35.6%; bottom: 0px; text-align:right">
+                text 2
+            </div>
+
+        </div>
+    </div>
 
 </div>

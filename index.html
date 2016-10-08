@@ -1,37 +1,52 @@
 ---
-layout: vazio
+layout: frontpage
+title: Kruk's Homepage
 ---
 
 <div class="home">
 
     <div class="site-title">
 
-        <div style="position:relative; border: 1px solid black; width:728px; margin: auto; float: left; background-color: pink;">
-            <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+        <!--
+        <div style="position:relative; border: 1px solid black; width:728px; margin: auto; float: left; background-color: #e4e4e4;">
+        -->
+        <div style="position:relative; padding:3px; width:728px; margin: auto; float: left; background-color: #e4e4e4;">
+            <a class="site-title" href="{{ site.baseurl_lu }}/">{{ site.name_lu }}</a>
         </div>
 
 
-        <div style="position:relative; border: 1px solid black; width:728px; height:200px; margin: auto; float: left; background-color: pink;">
+        <div style="position:relative; padding:3px; width:728px; height:400px; margin: auto; float: left; background-color: #f0f0f0;">
 
-            <div style="position:absolute; border: 1px solid black; width:35%; left:0px; background-color: pink;">
-                <a href="{{ site.baseurl }}/lu/">
-                    <img src="images/teste.jpg" alt="foto um" width="100%">
+            <div style="position:absolute; width:35%; left:0px;">
+                <a href="{{ site.baseurl_lu }}">
+                    <img src="images/avatar_kruk_1.png" alt="foto um" width="100%">
                 </a>
             </div>
 
-            <div style="position:absolute; border: 1px solid yellow; width:15%; left:35.3%; top: 0px; text-align: left">
-                text 1
+            <div style="position:absolute; width:25%; left:37%; top: 30px; text-align: left">
+                <ul class="fp-list">
+                    <li>signal processing</li>
+                    <li>simulation and control</li>
+                    <li>system engineering</li>
+                </ul>
             </div>
 
-            <div style="position:absolute; border: 2px solid black; width:35%; bottom:0px; right:0px; background-color: pink;">
-                <img src="images/teste.jpg" alt="foto dois" width="100%">
+            <div style="position:absolute; width:35%; bottom:0px; right:0px;">
+                <img src="images/avatar_nadi_1.png" alt="foto dois" width="100%">
             </div>
 
-            <div style="position:absolute; border: 1px solid yellow; width:100px; right:35.6%; bottom: 0px; text-align:right">
-                text 2
+            <div style="position:absolute; width:100px; right:35.6%; bottom: 30px; text-align:right">
+                <ul class="fp-list">
+                    <li>hydrology</li>
+                </ul>
             </div>
 
         </div>
+
+        <div style="position:relative; padding:3px; width:728px; float: left; text-align:right; background-color: #e4e4e4;">
+            <a class="site-title" href="{{ site.baseurl_na }}/">{{ site.name_na }}</a>
+        </div>
+
     </div>
 
 </div>

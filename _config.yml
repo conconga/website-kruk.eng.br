@@ -3,7 +3,6 @@ source:        .
 destination:   _site
 safe:          true
 title:         kruk's
-title_lu:      I am a maker
 name_lu:       M.Sc. Luciano A. Kruk
 name_na:       Dr. Nadiane S. Kruk
 email:         "sp03 at kruk dot eng dot br"

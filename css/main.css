@@ -37,15 +37,40 @@ a:visited { color: #205caa; }
 /* frontpage styles */
 /* ----------------------------------------------------------*/
 .fp-list {
-    list-style-type: circle; 
+    list-style-type: circle;
     font-size: 16px;
     line-height: 25px;
+}
+
+/* head(er)/footer styles */
+/* ----------------------------------------------------------*/
+.div-table{
+    display:table;
+    width:auto;
+    /* background-color:#eee; */
+    /* border:1px solid  #666666; */
+    border-spacing:5px;/*cellspacing:poor IE support for  this*/
+}
+.div-table-row{
+    display:table-row;
+    width:auto;
+    clear:both;
+}
+.div-table-col{
+    float:left;/*fix for  buggy browsers*/
+    display:table-column;
+    /* width:100px; */
+    /* background-color:#ccc; */
 }
 
 /* Layout Styles */
 /* ----------------------------------------------------------*/
 
 /* Site header */
+
+.divdebug {
+    border: 2px solid black;
+}
 
 .site-header {
   border-top: 5px solid #333;

@@ -23,4 +23,7 @@ permalink: pretty
 
 exclude:
     - sh_do2publish
-
+    - sh_serve_watch
+    - index.html.orig
+    - images/desenho_sophie.xcf
+    - images/avatar_nadi_1.xcf

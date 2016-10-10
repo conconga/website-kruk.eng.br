@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+
+    <body>
+
+    <header class="site-header">
+        <div class="wrap">
+            {% include header.html %}
+            {% include blog_1_subheader.html %}
+        </div>
+    </header>
+
+    <div class="page-content">
+      <div class="wrap">
+      {{ content }}
+      </div>
+    </div>
+
+    {% include blog_1_footer.html %}
+
+    </body>
+</html>

@@ -42,6 +42,12 @@ a:visited { color: #205caa; }
     line-height: 25px;
 }
 
+.about-legend {
+    text-align: center;
+    font-size:  12px;
+    font-style: italic;
+}
+
 /* head(er)/footer styles */
 /* ----------------------------------------------------------*/
 .div-table{

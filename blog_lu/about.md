@@ -33,7 +33,7 @@ This was the purpose of my doctorate. By the qualification, I presented an
 algorithm capable of fusing data from different nodes without any redundance
 (the most relevant issue in data fusion!) using the theory of Random Finite
 Sets.
-- Stochastic Signal Processing. Wow. There should be a chapter here. One of the
+- Stochastic Signal Processing. Wow! There should be a chapter here. One of the
 most recent challenges was to make the transfer alignment algorithm for a sea
 skimming missile launched from a "flexible" ship which could provide only a
 noisy gravity direction. Nice, isn't it?  But I have some nice works in other
@@ -41,6 +41,13 @@ missile categories. For a infrared missile, how to classify targets from
 flares? And for a anti-radiation missile, how accurately describe a scene with
 different sources and jammers, deinterleave a bunch of received pulses,
 estimate a target-in-range, or triangulate the target during flight?
+
+<div class="about-legend">
+    <img src="/images/mansup.png"/>
+    <br>
+    (downloaded from "http://www.militarypower.com.br/laad15_48.jpg" in 2016-10-01)
+</div>
+
 - Error modeling and propagation. Problems like this one might get some
 benefits from this theory: how to write and validate a consistent requirement
 where a sea skimming missile should not hit water?
@@ -53,6 +60,12 @@ parameter estimation. These algorithms were employed in at least 3 different
 missiles.
 - Data clustering, with application to radar targets localization or machine
 learning.
+
+<div class="about-legend">
+    <img src="/images/mar-1-b1.png"/>
+    <br>
+    (downloaded from "http://www.aereo.jor.br/wp-content/uploads//2009/04/mar-1-b1.jpg" in 2016-10-01)
+</div>
 
 ### simulation:
 
@@ -72,6 +85,13 @@ gimbals. The mathematical core of this simulation was redesigned, the equations
 where rearranged and simplified, everything was implemented in C, and I got a
 real-time simulator using just a XML file as input. Very versatile.
 
+<div class="about-legend">
+    <img src="/images/mansupvoando.png"/>
+    <br>
+    (downloaded from "http://portaldefesa.com/home/wp-content/uploads/imagens/Leo/MANSUP/mansupvoando.jpg" in 2016-10-01)
+</div>
+
+
 ### work and tools:
 
 - Software development in accordance to DO-178B. Though I have done the training in
@@ -80,7 +100,7 @@ Washington DC, I have not used it in any particular project, so far .... :o)
 but Python/Numpy is on the way!
 - I played with some resources I had at home, like cellphone, laptop and desktop and
 build a cluster with them. I used Message Passing Interface (MPI) with Octave.
-- This topics are daily used, as if they were inside my personal toolbox:
+- These topics are daily used, as if they were inside my personal toolbox:
   - Statistical concepts and tools,
   - Algebra,
   - Mixture of Gaussians, EM-algorithm, etc

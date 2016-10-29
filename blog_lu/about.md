@@ -1,7 +1,7 @@
 ---
 layout: blog_1_page
-title: about
-permalink: /about/
+title: about me
+permalink: /about_lu/
 photo: /images/avatar_kruk_1.png
 phrase: I am a maker
 ---

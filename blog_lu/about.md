@@ -106,7 +106,6 @@ build a cluster with them. I used Message Passing Interface (MPI) with Octave.
   - Mixture of Gaussians, EM-algorithm, etc
   - Support Vector Machine, Principal Component Analysis, and variations, Neural Networks, and others.
 
-### some nice pictures from internet:
 
 ### some more experience:
 

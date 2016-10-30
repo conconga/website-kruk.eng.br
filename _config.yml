@@ -23,6 +23,7 @@ permalink: pretty
 exclude:
     - sh_do2publish
     - sh_serve_watch
+    - py_post_gen
     - index.html.orig
     - markdown-cheatsheet-online.pdf
     - images/desenho_sophie.xcf

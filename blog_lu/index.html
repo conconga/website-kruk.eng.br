@@ -7,7 +7,7 @@ phrase: I am a maker
 
 <div class="home">
 
-  <h1>Posts ...</h1>
+  <h1 style="font-weight:bold">Posts ...</h1>
 
   <ul class="posts">
     {% for post in site.posts %}
@@ -17,6 +17,7 @@ phrase: I am a maker
   </ul>
 
   <br>
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  <p class="rss-subscribe">
+  <img src="/images/rss-logo.png" width=16px /> subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>

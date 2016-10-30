@@ -453,5 +453,6 @@ a:visited { color: #205caa; }
 .posts { padding:0;}
 .posts li { padding:0 4px; border-bottom:1px solid #dddddd; margin-bottom:0px; color:#ccc; list-style: none; }
 ul.posts li a { font-weight:100;}
-ul.posts li span { float:right; font-family:monofur, monaco, courier; color:#888; }
+ul.posts li span { float:right; font-family:monofur, monaco, courier; font-size:12px; color:#888; }
+.rss-subscribe { font-weight:bold; }
 /* ----------------------------------------------------------*/

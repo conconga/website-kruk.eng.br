@@ -43,7 +43,7 @@ different sources and jammers, deinterleave a bunch of received pulses,
 estimate a target-in-range, or triangulate the target during flight?
 
 <div class="about-legend">
-    <img src="/images/mansup.png"/>
+    <img src="/images/about/mansup.png"/>
     <br>
     (downloaded from "http://www.militarypower.com.br/laad15_48.jpg" in 2016-10-01)
 </div>
@@ -62,7 +62,7 @@ missiles.
 learning.
 
 <div class="about-legend">
-    <img src="/images/mar-1-b1.png"/>
+    <img src="/images/about/mar-1-b1.png"/>
     <br>
     (downloaded from "http://www.aereo.jor.br/wp-content/uploads//2009/04/mar-1-b1.jpg" in 2016-10-01)
 </div>
@@ -86,7 +86,7 @@ where rearranged and simplified, everything was implemented in C, and I got a
 real-time simulator using just a XML file as input. Very versatile.
 
 <div class="about-legend">
-    <img src="/images/mansupvoando.png"/>
+    <img src="/images/about/mansupvoando.png"/>
     <br>
     (downloaded from "http://portaldefesa.com/home/wp-content/uploads/imagens/Leo/MANSUP/mansupvoando.jpg" in 2016-10-01)
 </div>
@@ -110,7 +110,7 @@ build a cluster with them. I used Message Passing Interface (MPI) with Octave.
 ### some more experience:
 
 - I have 4 Raspberries, and 1 Carambola. Did you get it? 
-<img src="/images/findicons.com-icontexto_emoticons_04.png" width="30px" />
+<img src="/images/about/findicons.com-icontexto_emoticons_04.png" width="30px" />
 
 - I have worked in three countries so far: Brazil naturally, but also Germany
 (Munich, 2001) and USA (Seattle, also 2001). Currently, I live and work again

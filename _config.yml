@@ -22,24 +22,9 @@ permalink: pretty
 #highlighter: rouge
 
 exclude:
-    - sh_do2publish
-    - sh_serve_watch
-    - py_post_gen
-    - index.html.orig
+    - data/sh*
+    - data/py*
+    - data/markdown*
     - markdown-cheatsheet-online.pdf
-    - images/desenho_sophie.xcf
-    - images/avatar_nadi_1.xcf
-    - images/missiles-internetimages/maa1maa1b.jpg
-    - images/missiles-internetimages/Imagem-1-e-2-MAN-UP-1_BALan_E7amento.jpg
-    - images/missiles-internetimages/MAR-1_Missile_8.jpg
-    - images/missiles-internetimages/PiranhaXavanteArtigo.jpg
-    - images/missiles-internetimages/mar-1-b1.jpg
-    - images/missiles-internetimages/mansupvoando.jpg
-    - images/missiles-internetimages/mansup.jpg
-    - images/missiles-internetimages/mansup.png
-    - images/missiles-internetimages/README
-    - images/missiles-internetimages/Imagem-4-MAN-UP-1Lancamento.png
-    - images/missiles-internetimages/MAR-1_parts.jpg
-    - images/missiles-internetimages/mansup.xcf
-    - images/missiles-internetimages/mansupvoando.xcf
-    - images/missiles-internetimages/mar-1-b1.xcf
+    - images/*.xcf
+    - images/acervo/*

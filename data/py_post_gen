@@ -1,0 +1,24 @@
+#!/usr/bin/python
+
+# Random post generator; to make tests...
+
+import random as rd;
+import string;
+
+year    = 2000
+month   = rd.randrange(1,13)
+day     = rd.randrange(1,30)
+hour    = rd.randrange(0,25)
+min     = rd.randrange(0,60);
+
+name    = "".join( [rd.choice(string.letters) for i in xrange(30) ] )
+txt     = "".join( [rd.choice(string.letters) for i in xrange(30) ] )
+
+filename = "%d-%02d-%02d-%s.md" % ( year, month, day, name )
+
+f    = open(filename, "w");
+date = "%d-%02d-%02d %02d:%02d:00" % (year, month, day, hour, min)
+ftxt = "---\nlayout: post\ntitle: \"%s\"\ndate: %s\ncategories: lu\n---\n\n" % (name, date)
+f.write(ftxt);
+f.write(txt);
+f.close();

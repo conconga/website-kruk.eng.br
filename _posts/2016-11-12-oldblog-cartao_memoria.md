@@ -1,16 +1,19 @@
 ---
 layout: post
-title:  "from my old website..."
-date:   2016-10-06 06:03:19
-date:   2016-11-10 23:20:00
+title:  "from my old site... data logger"
+date:   2016-11-12 22:20:00
 categories: jekyll update
 ---
 
-![foto](/images/20161110_post/dsp.th.png)
-![foto](/images/20161110_post/hw_usb.png)
-![foto](/images/20161110_post/linuxstamp_top_02.png)
-![foto](/images/20161110_post/mmc-sd.png)
-![foto](/images/20161110_post/msp430_1.png)
-![foto](/images/20161110_post/msp430_2.png)
-![foto](/images/20161110_post/proj_braco.png)
-![foto](/images/20161110_post/sw_usb.th.png)
+These first and nexts posts intend to recover some content presented in my last
+website.
+
+This one is old, but still nice. It is a *data logger* built with a MSP430 and a
+MMC/SD memory card. They are cheap and easy to work with. 
+
+The source code used is [here](/data/2008-mmcsd.c).
+
+<div class="about-legend">
+    <img src="/images/20161112_post/mmc-sd.png"/>
+</div>
+

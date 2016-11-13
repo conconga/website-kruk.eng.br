@@ -11,7 +11,7 @@ Any electronic hobbist must know at least one (family of) microcontroller. My
 current choice is MSP430. I can compile and debug using open source tools; the
 components are inexpensive; and Texas Instruments gives a great support.
 
-Here are some development kits I have built. 
+Here are some development kits I have designed and built.
 
 <div class="about-legend">
     <img src="/images/20161112_post/msp430_1.png"/>

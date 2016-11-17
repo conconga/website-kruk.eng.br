@@ -2,7 +2,6 @@
 layout: post
 title:  "from my old site... uControllers"
 date:   2016-11-12 22:30:00
-categories: jekyll update
 ---
 
 This post still recovers some content presented in my last website.

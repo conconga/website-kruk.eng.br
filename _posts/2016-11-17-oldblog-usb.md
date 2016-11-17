@@ -20,4 +20,9 @@ its application collecting some finger data:
 
 <div class="about-legend">
     <img src="/images/20161112_post/hw_usb.png" />
+    <img src="/images/20161112_post/sw_usb.th.png" />
 </div>
+
+Some years ago, a student sent me some emails asking things about the project.
+I guess he wanted to build a similar one as his final work. Maybe I could help
+him a bit...

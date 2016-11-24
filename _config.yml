@@ -28,3 +28,4 @@ exclude:
     - markdown-cheatsheet-online.pdf
     - images/*.xcf
     - images/acervo/*
+    - images/avatar_kruk_1*

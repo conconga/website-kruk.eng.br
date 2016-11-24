@@ -2,7 +2,7 @@
 layout: blog_1_page
 title: about me
 permalink: /about_lu/
-photo: /images/avatar_kruk_1.png
+photo: /images/avatar_kruk_2.png
 phrase: I am a maker
 ---
 

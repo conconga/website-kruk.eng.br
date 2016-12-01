@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#read -p "Qual eh sua senha para 'ssh kruke607@kruk.eng.br' ? " -s senha
+
+echo "inicio da transferencia ..."
+rsync -apogHrRv -e "ssh -p 2222 "  _site/ kruke607@kruk.eng.br:~/
+
+echo "remocao de versao antiga e correcao no nome das pastas..."
+ssh -p 2222 kruke607@kruk.eng.br "{ rm -rfv www/* ; mv -v _site/* www/.; rmdir _site; }"

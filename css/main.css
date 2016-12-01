@@ -233,6 +233,7 @@ a:visited { color: #205caa; }
   line-height: 1;
   font-weight: 300;
   margin: 40px 0 20px;
+  background-color: #eef;
 }
 
 .post-content h2 {
@@ -266,13 +267,14 @@ a:visited { color: #205caa; }
 .post pre,
 .post code {
   border: 1px solid #d5d5e9;
-  background-color: #eef;
+  background-color: #343434;
+  color: #00ff12;
   padding: 8px 12px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  font-size: 15px;
-  overflow:scroll;
+  font-size: 11px;
+  overflow-x:auto;
 }
 
 .post code { padding: 1px 5px; }
@@ -454,5 +456,6 @@ a:visited { color: #205caa; }
 .posts li { padding:0 4px; border-bottom:1px solid #dddddd; margin-bottom:0px; color:#ccc; list-style: none; }
 ul.posts li a { font-weight:100;}
 ul.posts li span { float:right; font-family:monofur, monaco, courier; font-size:12px; color:#888; }
+.bold { font-weight:bold; }
 .rss-subscribe { font-weight:bold; }
 /* ----------------------------------------------------------*/

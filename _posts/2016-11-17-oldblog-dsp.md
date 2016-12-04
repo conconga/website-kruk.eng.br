@@ -2,6 +2,7 @@
 layout: post
 title:  "from my old site... DSP Texas Instruments"
 date:   2016-11-17 22:00:00
+categories: lu
 ---
 
 This post still recovers some content presented in my last website.

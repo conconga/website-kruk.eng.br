@@ -2,6 +2,7 @@
 layout: post
 title:  "from my old site... Embedded Linux"
 date:   2016-11-17 22:20:00
+categories: lu
 ---
 
 This post still recovers some content presented in my last website.

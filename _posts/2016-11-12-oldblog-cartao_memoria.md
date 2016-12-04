@@ -2,6 +2,7 @@
 layout: post
 title:  "from my old site... data logger"
 date:   2016-11-12 22:20:00
+categories: lu
 ---
 
 These first and nexts posts intend to recover some content presented in my last

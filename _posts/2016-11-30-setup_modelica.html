@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "My OpenModelica Simulation Setup"
+title:  "my OpenModelica simulation setup"
 date:   2016-11-30 22:10:00
 categories: lu
 ---
 
+<p>
 Modelica was born as a high level programming language for modelling and
 simulation, but shortly evolved to a standard. Nowadays one can find several
 different implementations of the standard. Some of the most well known are
@@ -13,17 +14,22 @@ OpenModelica (free), JModelica (free), Dymola (Dassault Systèmes), SimulationX
 tools allow the user to export the result in accordance to the Functional
 Mock-up Interface (FMI), another standard to permit models from different users
 to be integrated easily in one unique big simulation somewhere in the world.
+</p>
 
+<p>
 The goal of this post is not to talk about Modelica itself. One can find
 abundant information in internet about it. Though, I intend to present my
 simulation setup. It is worth noting that I am an open source evangelist.
 Therefore, all that follows is build with free state-of-art software for
 simulation. Enjoy!
+</p>
 
 <h3>basic setup:</h3>
 
+<p>
 I run a Debian machine, and I use OpenModelica. That said, the file
 /etc/apt/sources.list was changed to:
+</p>
 
 <pre class="highlight">
 # [ original from debootstrap ]
@@ -38,22 +44,30 @@ deb http://build.openmodelica.org/apt  jessie stable
 deb-src http://build.openmodelica.org/apt  jessie stable
 </pre>
 
+<p>
 From a shell, the installation could not be easier:
+</p>
 
 <pre class="highlight">
 # apt-get install openmodelica* ipython python-matplotlib
 </pre>
 
+<p>
 Ok. That's all Folks! Yes and No. The installation is finished, but the
-setup is just about to start. <br>
+setup is just about to start.
+</p>
 
+<p>
 I do not like graphical interfaces. Although <i>OpenModelica</i> comes with the
 nice <i>OMEdit</i>, I like more text files with comments. They are clearer for
 me. I can read the equations faster when they are in one line, instead of being
 spread in several canvas with long black tiny lines connecting them.
+</p>
 
-<br>In the following, I will implement a simple dynamic system (plant) as
+<p>
+In the following, I will implement a simple dynamic system (plant) as
 well as a controller for it.
+</p>
 
 <h3>the plant:</h3>
 
@@ -63,20 +77,26 @@ well as a controller for it.
     [This picture was done using the tool 'potrace', from a scanned handwritten scratch converted to .svg file.]
 </div>
 
+<p>
 Here we have a diagram of the plant. Very simple, it is just a mass moving
 freely on a table (no friction) and subject to only one force. The system input
 is the mentioned force, and the output is the position <i>x</i> of the mass.
 The relation between input and output of the system is given by Newton's Law.
+</p>
 
 <h3>the problem:</h3>
 
+<p>
 The goal is to move the mass from position 0[m] to position 1000[m], and stop
 there!
+</p>
 
 <h3>the Modelica object plant:</h3>
 
+<p>
 I put this code (file 
 <b class="bold">plant.mo</b>) in a folder:
+</p>
 
 <pre class="highlight">
 //(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)//
@@ -103,8 +123,10 @@ end PLANT;
 //(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)//
 </pre>
 
+<p>
 together with this one (file 
 <b class="bold">doit.mos</b>):
+</p>
 
 <pre class="highlight">
 loadFile("plant.mo");
@@ -115,37 +137,47 @@ simulate(PLANT, stopTime=20, stepSize=1000e-6);
 getErrorString();
 </pre>
 
+<p>
 and, from a shell, I run:
+</p>
 
 <pre class="highlight">
 $ omc +d=initialization doit.mos
 </pre>
 
+<p>
 As the main output, OpenModelica creates a file called 
 <b class="bold">PLANT_res.mat</b>, where all
 public variables dependent on time are stored. If you got this file, everything 
 seems promising, so far. But WTH is in the file, and how one can read it?
+</p>
 
 <h3>the *_res.mat:</h3>
 
+<p>
 Really, I will not be the one to explain you this file format. Sorry. I use a
 self-made python script to extract the data from the *res.mat file. Wanna try?
 Download momat2dat.py from <a href="/data/20161130_post/momat2dat.py">here</a>.
 In a second you will have some examples on how to use the script.
+</p>
 
-<br>What about a hands-on the setup so far? Put the files 
+<p>
+What about a hands-on the setup so far? Put the files 
 <b class="bold">plant.mo</b>,
 <b class="bold">doit.mos</b> and
 <b class="bold">momat2dat.py</b> in the same folder, and type:
+</p>
 
 <pre class="highlight">
 $ omc +d=initialization doit.mos
 </pre>
 
+<p>
 If the file 
 <b class="bold">PLANT_res.mat</b>
 is available, run the code bellow to see a graph with the 
 results (python-matplotlib required).
+</p>
 
 <pre class="highlight">
 $ ipython
@@ -171,25 +203,30 @@ $ ipython
 
 <h3>the garbage:</h3>
 
+<p>
 So far, I haven't found how one can do the steps above in a separated folder,
 away from the .mo files. There is a set of useless (at least for me!) files
 automatically generated in the folder. At least one good news: the filenames
 are strange, but they do not change often, from one compilation to another.
 That means one can make a script to clean the garbage and this script will not
 demand continuous maintenance.
+</p>
 
-<br>
+<p>
 In my case, I have a script called 
 <b class="bold">sh_build</b>
 to call the omc command, and another called 
 <b class="bold">sh_clean</b>, to rub the house.
+</p>
 
 <h3>some serious play:</h3>
 
+<p>
 What about some more action? I put here the basic structure of a PID
 controller. When the plant is controllable in closed loop, the PID input shall
 vanish. Its output contain the three known parcels, named proportional,
 derivative and integrative.
+</p>
 
 <pre class="highlight">
 //(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)//
@@ -219,8 +256,10 @@ end PID;
     [Content of file <b class="bold">pid.mo</b>.]
 </div>
 
+<p>
 Now the final object which connects the PID model and the
 plant together...
+</p>
 
 <pre class="highlight">
 //(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)//
@@ -250,6 +289,7 @@ end main;
 //(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)(=X=)//
 </pre>
 
+<p>
 The file <b class="bold">doit.mos</b> shall be adjusted to 
 deal with the new files...
 <pre class="highlight">
@@ -271,14 +311,18 @@ getErrorString();
 simulate(main, stopTime=20, stepSize=1000e-6);
 getErrorString();
 </pre>
+</p>
 
+<p>
 Wanna see if it works? Me too!!
+</p>
 
 <p style="text-align:center;">
     <img src="/images/20161130_post/controlled.svg" 
     width="70%" alt="output of controlled plant simulation" />
 </p>
 
-<br>
+<p>
 You can download all the files 
 <a href="/data/20161130_post/kruk_modelica_setup.7z">here</a>.
+</p>

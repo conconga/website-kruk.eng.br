@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "[[ PING: google ]]"
+sitemap="http://www.google.com/webmasters/sitemaps/ping?sitemap=http://www.kruk.eng.br/feed_lu.xml"
+wget -O - "$sitemap"
+
+echo "[[ PING: bing ]]"
+sitemap="http://www.bing.com/ping?sitemap=http://www.kruk.eng.br/feed_lu.xml"
+wget -O - "$sitemap"

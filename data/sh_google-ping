@@ -1,4 +1,0 @@
-#!/bin/bash
-
-sitemap="http://www.google.com/webmasters/sitemaps/ping?sitemap=http://www.kruk.eng.br/feed_lu.xml"
-wget -O - "$sitemap"

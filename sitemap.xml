@@ -4,10 +4,18 @@ layout: none
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     {% for page in site.pages %}
-    <url>
-        <loc>{{ site.url }}{{ site.baseurl }}{{ page.url }}</loc>
-        <changefreq>monthly</changefreq>
-    </url>
+        <url>
+            <loc>{{ site.url }}{{ site.baseurl }}{{ page.url }}</loc>
+            <changefreq>monthly</changefreq>
+        </url>
+    {% endfor %}
+
+
+    {% for post in site.posts %}
+        <url>
+            <loc>{{ site.url }}{{ post.url }}</loc>
+            <changefreq>monthly</changefreq>
+        </url>
     {% endfor %}
 </urlset>
 

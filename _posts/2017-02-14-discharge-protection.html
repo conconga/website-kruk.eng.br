@@ -1,0 +1,175 @@
+---
+layout: post
+title:  "LiPo (or so) over-discharge protection"
+date:   2017-02-14 20:00:00
+categories: lu
+---
+
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>why to protect a LiPo against over-discharge?</h3>
+
+<p>
+A LiPo cell should never be discharged bellow a specified
+value defined by the manufacturers. This value is normally in the range
+of 3.0[V]/cell and 3.3[V]/cell. The Lipo's are considered dangerous, and
+might explode during the recharging cycle. When the charge is made with an
+over-discharged battery, the exploding risk increases a lot. In some 
+cases, the battery might be permanently damaged and the recharge is no longer 
+an option.
+
+Some projects use LiPo batteries in an unattended manner, i.e. running
+for hours or days without constant check of the remaining battery level.
+Therefore, one might be interested in a solution to cut the load off 
+before the batteries are lost.
+</p>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>the <a href="http://www.linear.com/">LT</a> solution</h3>
+
+<p>
+The adopted circuit here was taken from an article written in
+1999 by Albert Lee in Linear Technology Magazine:
+"4.5uA Li-Ion Battery Protection Circuit".
+</p>
+
+<div class="about-legend">
+    <img src="/images/20170214_post/circuito.svg" width="70%" alt="similar circuit to the apnote" />
+</div>
+
+<p>
+The main explanation about the circuit is available in the document.
+I present here a compendium of calculus to select the components for the circuit.
+</p>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>hysteresis</h3>
+
+<p>
+When the load is disconnected from the battery, it is expected that Vi
+increases, and the Operational Amplifier (OpAmp) switches the load ON again.
+With load, Vi falls down, and the OpAmp switches OFF, and so on.. This
+switching endless cycle might destroy your load.
+</p>
+
+<p>
+A nice feature of the circuit is the hysteresis created by the presence
+of R5. When the battery (Vi) discharges, the commutation of the Operational
+Amplifier (OpAmp) from LOW (Load ON) to HIGH (Load OFF) happens at Vi=Vi_low.
+The resistor R5 shifts the reference level up, and reduces the risk of the
+switching cycle. Vi should reach Vi_high to have the load ON again.
+</p>
+
+<div class="about-legend">
+    <img src="/images/20170214_post/hysteresis.svg" width="40%" alt="hysteresis curve" />
+</div>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>basics</h3>
+
+<p>
+Note that the circuit (and the explanation in the article) compare two different voltages,
+one created by the divider R3/R4, and the other by R1/Vd/R2/R5.
+</p>
+
+<p>
+The voltage divider is really basic. Given an input voltage, the output 
+is proportional to the input.
+</p>
+
+<div class="about-legend">
+    <img src="/images/20170214_post/divisor.svg" width="47%" alt="classical resistor divisor" />
+</div>
+
+<p>
+The sequence R1/Vd/R2 biased by R5 gives the other reference.  When the output
+of the OpAmp is LOW, the circuit can be modelled by this equivalent, where Vt
+is the difference between the LOW output of the OpAmp and ground:
+</p>
+
+<div class="about-legend">
+    <img src="/images/20170214_post/load-ON.svg" width="47%" alt="load ON" />
+</div>
+
+<p>
+When the output of the OpAmp is HIGH, the circuit might have this modell, where VT is
+the difference between the HIGH output of the OpAmp and Vi:
+</p>
+
+<div class="about-legend">
+    <img src="/images/20170214_post/load-OFF.svg" width="47%" alt="load OFF" />
+</div>
+
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>formula</h3>
+<p>
+The voltage reference vb1 is calculated by these equations:
+</p>
+
+<div class="about-legend">
+    <img src="/images/20170214_post/vb1.svg" width="47%" alt="calculation of vb when load is ON" />
+</div>
+
+<p>
+and vb2, by these:
+</p>
+
+<div class="about-legend">
+    <img src="/images/20170214_post/vb2.svg" width="67%" alt="calculation of vb when load is OFF" />
+</div>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>objective equations</h3>
+<p>
+Note that the values Vi_low, Vi_high, Vd, Vt and VT are project parameters.
+The unknowns are R1, R2, R5 and k (voltage divider). I decided to select myself the
+component R2, leaving three unknowns.
+</p>
+
+<p>
+With this set of three equations, one can achieve all the unknowns, given R2:
+</p>
+
+<div class="about-legend">
+    <img src="/images/20170214_post/sys2solve.svg" width="47%" alt="system of equations to solve" />
+</div>
+
+<p>
+The value imin is the minimum current at the diode U2 to have a stable voltage
+reference. If you use the component suggested by LT, the minimum current is only
+20[uA]!! I use 30[uA].
+</p>
+
+<p>
+This <a href="/data/20170214_post/py_lipo_protection">script</a>
+(python) solves the problem for a wide range of R2 possibilities,
+allowing the user to select easily commercial values for his own demands.
+</p>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>solution and test</h3>
+<p>
+In my case, a good starting point was a combination of R2=15[kOhm] and R5=2M2[Ohm]. All the 
+values for the other components came nicely afterwards.
+</p>
+
+<p>
+Here you have the first test with this approach:
+</p>
+
+<div class="about-legend">
+    <img src="/images/20170214_post/circ-3.jpg" width="80%" alt="implementation of solution" />
+</div>
+
+<p>
+and here the final implementation of the test setup.
+</p>
+
+<div class="about-legend">
+    <img src="/images/20170214_post/final+thermo.jpg" width="80%" alt="board implementation" />
+</div>
+
+<p>
+I hope it helps you! Enjoy!
+</p>

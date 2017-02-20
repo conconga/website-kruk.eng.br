@@ -12,9 +12,9 @@ categories: lu
 <p>
 A LiPo cell should never be discharged bellow a specified
 value defined by the manufacturers. This value is normally in the range
-of 3.0[V]/cell and 3.3[V]/cell. The Lipo's are considered dangerous, and
+of 3.0[V]/cell and 3.3[V]/cell. The Lipos are considered dangerous, and
 might explode during the recharging cycle. When the charge is made with an
-over-discharged battery, the exploding risk increases a lot. In some 
+over-discharged battery, the explosion risk increases a lot. In some 
 cases, the battery might be permanently damaged and the recharge is no longer 
 an option.
 
@@ -39,7 +39,7 @@ The adopted circuit here was taken from an article written in
 
 <p>
 The main explanation about the circuit is available in the document.
-I present here a compendium of calculus to select the components for the circuit.
+I present here a compendium of calculation to select the components for the circuit.
 </p>
 
 <!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
@@ -53,11 +53,11 @@ switching endless cycle might destroy your load.
 </p>
 
 <p>
-A nice feature of the circuit is the hysteresis created by the presence
-of R5. When the battery (Vi) discharges, the commutation of the Operational
-Amplifier (OpAmp) from LOW (Load ON) to HIGH (Load OFF) happens at Vi=Vi_low.
-The resistor R5 shifts the reference level up, and reduces the risk of the
-switching cycle. Vi should reach Vi_high to have the load ON again.
+A nice feature of the circuit is the hysteresis created by the presence of R5.
+When the battery (Vi) discharges, the commutation of the OpAmp from LOW (Load
+ON) to HIGH (Load OFF) happens at Vi=Vi_low.  The resistor R5 shifts the
+reference level up, and reduces the risk of the switching cycle. Vi should
+reach Vi_high to have the load ON again.
 </p>
 
 <div class="about-legend">
@@ -68,7 +68,7 @@ switching cycle. Vi should reach Vi_high to have the load ON again.
 <h3>basics</h3>
 
 <p>
-Note that the circuit (and the explanation in the article) compare two different voltages,
+Note that the circuit (and the explanation in the article) compares two different voltages,
 one created by the divider R3/R4, and the other by R1/Vd/R2/R5.
 </p>
 
@@ -92,7 +92,7 @@ is the difference between the LOW output of the OpAmp and ground:
 </div>
 
 <p>
-When the output of the OpAmp is HIGH, the circuit might have this modell, where VT is
+When the output of the OpAmp is HIGH, the circuit might have this model, where VT is
 the difference between the HIGH output of the OpAmp and Vi:
 </p>
 

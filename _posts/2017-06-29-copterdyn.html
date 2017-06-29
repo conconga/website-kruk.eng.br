@@ -1,0 +1,221 @@
+---
+layout: post
+title:  "Multibody Quadcopter Simulator"
+date:   2017-06-29 20:00:00
+categories: lu
+---
+
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>copterdyn</h3>
+
+<p>
+<b class="bold"><a
+        href="https://github.com/conconga/copterdyn">copterdyn</a></b> is a
+sophisticated simulator for a quadcopter modeled using multibody simulation
+concepts. The quadcopter is partitioned in
+five bodies, each with individual physical characteristics, like inertia,
+geometry, mass, and the multibody mathematical core solves all differential
+equations describing the dynamical behavior. 
+</p>
+
+<p>
+Additional differential equations might easily be plugged and solved together.
+The propellers, for example, are modeled by a second order transfer function to
+have their transient dynamical effects also simulated.
+</p>
+
+<p>
+The simulation is written in Python, object oriented, with an object called <b
+class="bold">cmyquad</b>, which might be a reference when one wants to model a
+different quad but use the same numerical kernel of this simulation. A model
+includes:
+<ul>
+    <li>masses</li>
+    <li>inertial characteristics</li>
+    <li>length of each copter arm</li>
+    <li>angles between body frame and each arm</li>
+    <li>tilt angle between vertical and thrust (misalignment)</li>
+</ul>  
+</p>
+
+<p>
+Most of quad simulations considers that each arm is separated by 90[deg] angles
+from each other, has same lengths, all motors are equal, the inertia tensors
+are diagonal, the thrust vectors are all parallel to each other, and the
+gyroscopic effect of the propellers are negligible. With this assumptions, one
+can develop a control project. The remaining question is: how would this
+control project work with the tolerances, imperfections and misalignments of a
+real quad? Such a simulation can be run hundreds of times with randomly
+selected model values, and a statistical analysis of the results can lead to
+better solutions, either concerning quad parts, or software project.
+</p>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>bodies</h3>
+<p>
+It is time to clarify the meaning of "a quadcopter with five bodies". This
+picture depicts the bodies. 
+</p>
+
+<p style="text-align:center;">
+    <img src="/images/20170629_post/bodies.png"
+     width="70%" alt="bodies" />
+</p>
+
+<p>
+<ul>
+    <li>central body supporting arms, electronics, batteries, <b class="bold">and</b> the static part of each motor;</li>
+    <li>four sets of propellers+rotors.</li>
+</ul>
+</p>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>geometry</h3>
+<p>
+As mentioned above, this simulator allows some additional degrees of
+configuration. The traditional setup of orthogonal arms with same length is
+not necessary anymore. An unusual configuration like this is allowed:
+</p>
+
+<p style="text-align:center;">
+    <img src="/images/20170629_post/nonortho.png"
+    width="70%" alt="Non-Orthogonal Arms" />
+</p>
+
+<p>
+Moreover, a tilt in the thrust vector is also allowed (and necessary for a good
+simulation!), like this: 
+</p>
+
+<p style="text-align:center;">
+    <img src="/images/20170629_post/alfa.png"
+     width="40%" alt="Alpha Angles" />
+</p>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>frames</h3>
+
+<p>
+Internally the orientation of frames is adopted as: X forward, Y right, Z
+down. 
+</p>
+
+<p style="text-align:center;">
+    <img src="/images/20170629_post/eixos.png"
+    width="70%" alt="main frames" />
+</p>
+
+<p style="text-align:center;">
+    <img src="/images/20170629_post/delta.png"
+    width="70%" alt="non-orth main frame" />
+</p>
+
+<p>
+Each body has its own frame, therefore one might get the propeller angle
+directly from its Euler angles.
+</p>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>current status</h3>
+
+<p>
+The project of <b class="bold">cmyquad</b> still does not have a controller.
+That said, please do not expect to see well-behaviored-flying quads. Here you
+can check some current results:
+</p>
+
+<p>
+1) perfectly symmetrical aligned quadcopter with four perfect equal
+propellers.
+</p>
+
+<p style="text-align:center;">
+    <img src="/images/20170629_post/report-no-deviation.gif"
+    width="70%" alt="perfect quad" />
+</p>
+
+<p>
+2) one of the perfect equal propellers is not so perfect and generates a
+thrust vector with a misalignment of 3[deg].
+</p>
+
+<p style="text-align:center;">
+    <img src="/images/20170629_post/report-alfa-3deg.gif"
+    width="70%" alt="misaligned thrust vector" />
+</p>
+
+<p>
+3) one of the arms is placed at 87[deg] instead of 90[deg].
+</p>
+
+<p style="text-align:center;">
+    <img src="/images/20170629_post/report-delta-3deg.gif"
+    width="70%" alt="misaligned arms" />
+</p>
+
+<p>
+It is worthless to say that a quadcopter without control is unstable, right?
+</p>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>how to run</h3>
+
+<pre class="highlight">
+$ ipython
+>>> %run simuquad.py
+</pre>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>how to change</h3>
+
+<p>
+Here you find some hints where to start from.
+</p>
+
+<h4>change structural parameters</h4>
+
+<p>
+Go to the first lines of <b class="bold">cmyquad.__init__()</b>. There you can
+play with masses, inertia, arms length, and angles. Make your changes and run
+it again.
+</p>
+
+<h4>where to plug the control</h4>
+
+<p>
+Go to the first lines of <b class="bold">cmyquad.pre_update()</b>. The variable
+<b class="bold">u</b> is fed equally to each propeller model. The controller
+will calculate the appropriate value of each <b class="bold">u</b>.
+</p>
+
+<h4>propeller model</h4>
+
+<p>
+Take a look at <b class="bold">cprop</b> methods.
+</p>
+
+<h4>animated gif</h4>
+
+<p>
+In the file <b class="bold">simuquad.py</b>, look for a line with <b
+class="bold">sq.cshowquad3d()</b>. Enable it to have a <b class="bold">.gif</b>
+file for each run.
+</p>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
+<h3>roadmap</h3>
+
+<p>
+Some ideas to continue this work are the modeling and implementation of:
+<ul>
+    <li>a minimal controller, in order to have some longer and more realistic simulations;</li>
+    <li>a better propeller model;</li>
+    <li>navigation, sensor models, estimators;</li>
+    <li>effect of wind (disturbances) (torques and forces);</li>
+    <li>guidance (optimal trajectory planning);</li>
+    <li>and so on... </li>
+</ul>
+</p>
+
+<!-- _-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-__-=-_ -->
